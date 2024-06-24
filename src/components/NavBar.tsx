@@ -1,10 +1,5 @@
 import { Button, HStack } from "@chakra-ui/react";
-import React from "react";
 import ColorModeSwitch from "./ColorModeSwitch";
-
-interface Props {
-  onSearch: (searchText: string) => void;
-}
 
 const NavBar = () => {
   return (
