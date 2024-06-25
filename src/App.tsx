@@ -1,6 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import "./App.css";
 import NavBar from "./components/NavBar";
+import EarthInfo from "./components/EarthInfo";
 
 function App() {
   return (
@@ -11,11 +12,12 @@ function App() {
         lg: "50% 1fr",
       }}
     >
-      <GridItem area="nav" backgroundColor={"black"}>
+      <GridItem area="nav">
         <NavBar />
       </GridItem>
       <GridItem area="aside" backgroundColor={"grey"}>
-        hi
+        Earth
+        <EarthInfo />
       </GridItem>
       <GridItem area="main" backgroundColor={"grey"}>
         hi
