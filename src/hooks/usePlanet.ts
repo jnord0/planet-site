@@ -13,6 +13,9 @@ export interface Planet {
     host_star_mass: number;
 }
 
-const usePlanet = () => useData<Planet>('mars');
+const usePlanet = () => {
+    const { data, error, isLoading } = useData<Planet>('mars');
+  return { data: data[0], error, isLoading };
+}
 
 export default usePlanet;
