@@ -28,7 +28,7 @@ const EarthInfo = () => {
 
   return (
     <List paddingTop={8}>
-      {earth.map((earths, index) => (
+      {earth.map((_earths, index) => (
         <ListItem
           border={"solid"}
           borderColor={"black"}
