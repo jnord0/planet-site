@@ -3,8 +3,16 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import EarthInfo from "./components/EarthInfo";
 import PlanetInfo from "./components/PlanetInfo";
+import { useState } from "react";
 
-function App() {
+interface Search {
+  holder: string | null;
+  searchingText?: string;
+}
+
+function App({ searchingText }: Search) {
+  const [search, setSearch] = useState<Search>({} as Search);
+
   return (
     <Grid
       templateAreas={{ base: `"nav" "main"`, lg: `"nav nav " "aside main"` }}
@@ -14,7 +22,11 @@ function App() {
       }}
     >
       <GridItem area="nav">
-        <NavBar />
+        <NavBar
+          onSearch={(searchingText) =>
+            setSearch((prevState) => ({ ...prevState, searchingText }))
+          }
+        />
       </GridItem>
       <GridItem
         area="aside"

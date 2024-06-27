@@ -32,7 +32,10 @@ const EarthInfo = () => {
         <ListItem
           border={"solid"}
           borderColor={"black"}
-          padding={5}
+          padding={3}
+          width={"fit-content"}
+          marginTop={3}
+          marginLeft={3}
           key={earth[index].id}
         >
           {earth[index].name}: {earth[index].stats}

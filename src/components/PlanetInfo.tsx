@@ -30,28 +30,84 @@ const ApiComponent = () => {
 
   return (
     <List paddingTop={8}>
-      <ListItem border={"solid"} borderColor={"black"} padding={5}>
+      <ListItem
+        border={"solid"}
+        borderColor={"black"}
+        width={"fit-content"}
+        marginTop={3}
+        marginLeft={3}
+        padding={3}
+      >
         Mass (Jupiters): {data[0].mass}
       </ListItem>
-      <ListItem border={"solid"} borderColor={"black"} padding={5}>
+      <ListItem
+        width={"fit-content"}
+        border={"solid"}
+        borderColor={"black"}
+        marginTop={3}
+        marginLeft={3}
+        padding={3}
+      >
         Radius (Jupiters): {data[0].radius}
       </ListItem>
-      <ListItem border={"solid"} borderColor={"black"} padding={5}>
+      <ListItem
+        border={"solid"}
+        borderColor={"black"}
+        width={"fit-content"}
+        marginTop={3}
+        marginLeft={3}
+        padding={3}
+      >
         Average Surface temp (Kelvin): {data[0].temperature}
       </ListItem>
-      <ListItem border={"solid"} borderColor={"black"} padding={5}>
+      <ListItem
+        border={"solid"}
+        borderColor={"black"}
+        width={"fit-content"}
+        marginTop={3}
+        marginLeft={3}
+        padding={3}
+      >
         Orbital Period (Days): {data[0].period}
       </ListItem>
-      <ListItem border={"solid"} borderColor={"black"} padding={5}>
+      <ListItem
+        border={"solid"}
+        borderColor={"black"}
+        width={"fit-content"}
+        marginTop={3}
+        marginLeft={3}
+        padding={3}
+      >
         Distance from Earth (Light Years): {data[0].distance_light_year}
       </ListItem>
-      <ListItem border={"solid"} borderColor={"black"} padding={5}>
+      <ListItem
+        border={"solid"}
+        borderColor={"black"}
+        width={"fit-content"}
+        marginTop={3}
+        marginLeft={3}
+        padding={3}
+      >
         Semi Major Axis (AU):: {data[0].semi_major_axis}
       </ListItem>
-      <ListItem border={"solid"} borderColor={"black"} padding={5}>
+      <ListItem
+        border={"solid"}
+        borderColor={"black"}
+        width={"fit-content"}
+        marginTop={3}
+        marginLeft={3}
+        padding={3}
+      >
         Host Star Temp (Kelvin): {data[0].host_star_temperature}
       </ListItem>
-      <ListItem border={"solid"} borderColor={"black"} padding={5}>
+      <ListItem
+        border={"solid"}
+        borderColor={"black"}
+        width={"fit-content"}
+        marginTop={3}
+        marginLeft={3}
+        padding={3}
+      >
         Host Star Mass (Sun): {data[0].host_star_mass}
       </ListItem>
     </List>
