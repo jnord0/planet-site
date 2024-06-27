@@ -16,7 +16,10 @@ function App() {
       <GridItem area="nav">
         <NavBar />
       </GridItem>
-      <GridItem area="aside" backgroundColor={"grey"}>
+      <GridItem
+        area="aside"
+        style={{ backgroundImage: 'url("./assets/earth.jpeg")' }}
+      >
         Earth
         <EarthInfo />
       </GridItem>
