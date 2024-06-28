@@ -19,7 +19,7 @@ const ApiComponent = () => {
 
   useEffect(() => {
     apiClient
-      .get("/planets?name=Earth") // Replace with your specific endpoint
+      .get("/planets?name=Mars") // Replace with your specific endpoint
       .then((response) => setData(response.data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
