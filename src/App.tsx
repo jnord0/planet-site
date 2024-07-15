@@ -8,13 +8,13 @@ import earth from "./assets/earth.jpeg";
 import planet from "./assets/planet.jpeg";
 import ResetButton from "./components/ResetButton";
 
-interface Search {
+export interface Search {
   holder: string | null;
   searchingText?: string;
 }
 
 function App() {
-  const [search, setSearch] = useState<Search>({} as Search);
+  const [search, setSearch] = useState<Search>({ holder: null });
 
   return (
     <>
@@ -49,8 +49,7 @@ function App() {
           backgroundRepeat={"no-repeat"}
           backgroundSize={"cover"}
         >
-          hi
-          <PlanetInfo />
+          <PlanetInfo search={search} />
         </GridItem>
       </Grid>
       <ResetButton />
