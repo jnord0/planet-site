@@ -41,11 +41,12 @@ const ApiComponent = ({ search }: ApiProps) => {
 
   return (
     <>
-      <h1>{search.searchingText}</h1>
+      <h1>{data[0].name}</h1>
       <List paddingTop={8}>
         <ListItem
           border={"solid"}
           borderColor={"black"}
+          backgroundColor={"rgba(0,0,0,0.7)"}
           width={"fit-content"}
           marginTop={3}
           marginLeft={3}
@@ -57,6 +58,7 @@ const ApiComponent = ({ search }: ApiProps) => {
           width={"fit-content"}
           border={"solid"}
           borderColor={"black"}
+          backgroundColor={"rgba(0,0,0,0.7)"}
           marginTop={3}
           marginLeft={3}
           padding={3}
@@ -66,6 +68,7 @@ const ApiComponent = ({ search }: ApiProps) => {
         <ListItem
           border={"solid"}
           borderColor={"black"}
+          backgroundColor={"rgba(0,0,0,0.7)"}
           width={"fit-content"}
           marginTop={3}
           marginLeft={3}
@@ -76,6 +79,7 @@ const ApiComponent = ({ search }: ApiProps) => {
         <ListItem
           border={"solid"}
           borderColor={"black"}
+          backgroundColor={"rgba(0,0,0,0.7)"}
           width={"fit-content"}
           marginTop={3}
           marginLeft={3}
@@ -86,6 +90,7 @@ const ApiComponent = ({ search }: ApiProps) => {
         <ListItem
           border={"solid"}
           borderColor={"black"}
+          backgroundColor={"rgba(0,0,0,0.7)"}
           width={"fit-content"}
           marginTop={3}
           marginLeft={3}
@@ -96,6 +101,7 @@ const ApiComponent = ({ search }: ApiProps) => {
         <ListItem
           border={"solid"}
           borderColor={"black"}
+          backgroundColor={"rgba(0,0,0,0.7)"}
           width={"fit-content"}
           marginTop={3}
           marginLeft={3}
@@ -106,6 +112,7 @@ const ApiComponent = ({ search }: ApiProps) => {
         <ListItem
           border={"solid"}
           borderColor={"black"}
+          backgroundColor={"rgba(0,0,0,0.7)"}
           width={"fit-content"}
           marginTop={3}
           marginLeft={3}
@@ -116,6 +123,7 @@ const ApiComponent = ({ search }: ApiProps) => {
         <ListItem
           border={"solid"}
           borderColor={"black"}
+          backgroundColor={"rgba(0,0,0,0.7)"}
           width={"fit-content"}
           marginTop={3}
           marginLeft={3}

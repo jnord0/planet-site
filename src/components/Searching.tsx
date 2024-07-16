@@ -1,5 +1,5 @@
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 
 interface Props {
@@ -8,8 +8,6 @@ interface Props {
 
 const Searching = ({ onSearch }: Props) => {
   const ref = useRef<HTMLInputElement>(null);
-
-  //<InputLeftElement children={<BsSearch />} />
 
   return (
     <form

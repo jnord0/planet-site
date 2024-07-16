@@ -32,6 +32,7 @@ const EarthInfo = () => {
         <ListItem
           border={"solid"}
           borderColor={"black"}
+          backgroundColor={"rgba(0,0,0,0.7)"}
           padding={3}
           width={"fit-content"}
           marginTop={3}
