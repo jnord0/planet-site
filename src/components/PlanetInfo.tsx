@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
-import { List, ListItem } from "@chakra-ui/react";
+import { Box, List, ListItem, Spinner } from "@chakra-ui/react";
 import { Search } from "../App";
 
 interface Planet {
@@ -21,22 +21,36 @@ interface ApiProps {
 const ApiComponent = ({ search }: ApiProps) => {
   const [data, setData] = useState<Planet[] | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (search.searchingText) {
       setLoading(true);
+      setError(null);
       apiClient
         .get(`/planets?name=${search.searchingText}`) // Replace with your specific endpoint
         .then((response) => {
           setData(response.data);
           setLoading(false);
         })
-        .catch((error) => console.error("Error fetching data:", error));
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          setError("Failed to fetch data, try again.");
+          setLoading(false);
+        });
     }
   }, [search]);
 
-  if (!data) {
-    return <div>Loading...</div>;
+  if (loading) {
+    return <Spinner />;
+  }
+
+  if (error) {
+    return <Box color="red.500">{error}</Box>;
+  }
+
+  if (!data || data.length === 0) {
+    return <Box>No data found, Enter valid planet.</Box>;
   }
 
   return (

@@ -38,6 +38,7 @@ const EarthInfo = () => {
           marginTop={3}
           marginLeft={3}
           key={earth[index].id}
+          color={"white"}
         >
           {earth[index].name}: {earth[index].stats}
         </ListItem>
