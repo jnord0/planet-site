@@ -1,4 +1,4 @@
-import { List, ListItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
 
 interface Info {
   id: string;
@@ -27,23 +27,32 @@ const EarthInfo = () => {
   ];
 
   return (
-    <List paddingTop={8}>
-      {earth.map((_earths, index) => (
-        <ListItem
-          border={"solid"}
-          borderColor={"black"}
-          backgroundColor={"rgba(0,0,0,0.7)"}
-          padding={3}
-          width={"fit-content"}
-          marginTop={3}
-          marginLeft={3}
-          key={earth[index].id}
-          color={"white"}
-        >
-          {earth[index].name}: {earth[index].stats}
-        </ListItem>
+    <Grid
+      templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+      gap={6}
+      paddingTop={8}
+    >
+      {earth.map(({ id, name, stats }) => (
+        <GridItem key={id}>
+          <Box
+            borderWidth="1px"
+            borderRadius="lg"
+            overflow="hidden"
+            boxShadow="md"
+            padding={3}
+            margin={2}
+            backgroundColor="rgba(0, 0, 0, 0.7)"
+            color="white"
+            textAlign={"center"}
+          >
+            <Text fontSize="lg" fontWeight="bold">
+              {name}:
+            </Text>
+            <Text>{stats}</Text>
+          </Box>
+        </GridItem>
       ))}
-    </List>
+    </Grid>
   );
 };
 

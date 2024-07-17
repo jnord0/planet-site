@@ -1,7 +1,6 @@
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
-import { Search } from "../App";
 import apiClient from "../services/api-client";
 
 interface Props {

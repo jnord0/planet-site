@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
-import { Box, List, ListItem, Spinner } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Spinner, Text } from "@chakra-ui/react";
 import { Search } from "../App";
 
 interface Planet {
@@ -56,96 +56,140 @@ const ApiComponent = ({ search }: ApiProps) => {
   return (
     <>
       <h1>{data[0].name}</h1>
-      <List paddingTop={8}>
-        <ListItem
-          border={"solid"}
-          borderColor={"black"}
-          backgroundColor={"rgba(0,0,0,0.7)"}
-          width={"fit-content"}
-          marginTop={3}
-          marginLeft={3}
+      <Grid
+        templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+        gap={6}
+        paddingTop={8}
+      >
+        <GridItem
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          boxShadow="md"
           padding={3}
+          margin={2}
+          backgroundColor="rgba(0, 0, 0, 0.7)"
+          color="white"
+          textAlign={"center"}
         >
-          Mass (Jupiters): {data[0].mass}
-        </ListItem>
-        <ListItem
-          width={"fit-content"}
-          border={"solid"}
-          borderColor={"black"}
-          backgroundColor={"rgba(0,0,0,0.7)"}
-          marginTop={3}
-          marginLeft={3}
+          <Text fontSize="lg" fontWeight="bold">
+            Mass (Jupiters):
+          </Text>
+          <Text>{data[0].mass}</Text>
+        </GridItem>
+        <GridItem
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          boxShadow="md"
           padding={3}
+          margin={2}
+          backgroundColor="rgba(0, 0, 0, 0.7)"
+          color="white"
+          textAlign={"center"}
         >
-          Radius (Jupiters): {data[0].radius}
-        </ListItem>
-        <ListItem
-          border={"solid"}
-          borderColor={"black"}
-          backgroundColor={"rgba(0,0,0,0.7)"}
-          width={"fit-content"}
-          marginTop={3}
-          marginLeft={3}
+          <Text fontSize="lg" fontWeight="bold">
+            Radius (Jupiters):
+          </Text>
+          <Text>{data[0].radius}</Text>
+        </GridItem>
+        <GridItem
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          boxShadow="md"
           padding={3}
+          margin={2}
+          backgroundColor="rgba(0, 0, 0, 0.7)"
+          color="white"
+          textAlign={"center"}
         >
-          Average Surface temp (Kelvin): {data[0].temperature}
-        </ListItem>
-        <ListItem
-          border={"solid"}
-          borderColor={"black"}
-          backgroundColor={"rgba(0,0,0,0.7)"}
-          width={"fit-content"}
-          marginTop={3}
-          marginLeft={3}
+          <Text fontSize="lg" fontWeight="bold">
+            Average Surface temp (Kelvin):
+          </Text>
+          <Text>{data[0].temperature}</Text>
+        </GridItem>
+        <GridItem
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          boxShadow="md"
           padding={3}
+          margin={2}
+          backgroundColor="rgba(0, 0, 0, 0.7)"
+          color="white"
+          textAlign={"center"}
         >
-          Orbital Period (Days): {data[0].period}
-        </ListItem>
-        <ListItem
-          border={"solid"}
-          borderColor={"black"}
-          backgroundColor={"rgba(0,0,0,0.7)"}
-          width={"fit-content"}
-          marginTop={3}
-          marginLeft={3}
+          <Text fontSize="lg" fontWeight="bold">
+            Orbital Period (Days):
+          </Text>
+          <Text>{data[0].period}</Text>
+        </GridItem>
+        <GridItem
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          boxShadow="md"
           padding={3}
+          margin={2}
+          backgroundColor="rgba(0, 0, 0, 0.7)"
+          color="white"
+          textAlign={"center"}
         >
-          Distance from Earth (Light Years): {data[0].distance_light_year}
-        </ListItem>
-        <ListItem
-          border={"solid"}
-          borderColor={"black"}
-          backgroundColor={"rgba(0,0,0,0.7)"}
-          width={"fit-content"}
-          marginTop={3}
-          marginLeft={3}
+          <Text fontSize="lg" fontWeight="bold">
+            Distance from Earth (Light Years):
+          </Text>
+          <Text>{data[0].distance_light_year}</Text>
+        </GridItem>
+        <GridItem
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          boxShadow="md"
           padding={3}
+          margin={2}
+          backgroundColor="rgba(0, 0, 0, 0.7)"
+          color="white"
+          textAlign={"center"}
         >
-          Semi Major Axis (AU): {data[0].semi_major_axis}
-        </ListItem>
-        <ListItem
-          border={"solid"}
-          borderColor={"black"}
-          backgroundColor={"rgba(0,0,0,0.7)"}
-          width={"fit-content"}
-          marginTop={3}
-          marginLeft={3}
+          <Text fontSize="lg" fontWeight="bold">
+            Semi Major Axis (AU):
+          </Text>
+          <Text>{data[0].semi_major_axis}</Text>
+        </GridItem>
+        <GridItem
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          boxShadow="md"
           padding={3}
+          margin={2}
+          backgroundColor="rgba(0, 0, 0, 0.7)"
+          color="white"
+          textAlign={"center"}
         >
-          Host Star Temp (Kelvin): {data[0].host_star_temperature}
-        </ListItem>
-        <ListItem
-          border={"solid"}
-          borderColor={"black"}
-          backgroundColor={"rgba(0,0,0,0.7)"}
-          width={"fit-content"}
-          marginTop={3}
-          marginLeft={3}
+          <Text fontSize="lg" fontWeight="bold">
+            Host Star Temp (Kelvin):
+          </Text>
+          <Text>{data[0].host_star_temperature}</Text>
+        </GridItem>
+        <GridItem
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          boxShadow="md"
           padding={3}
+          margin={2}
+          backgroundColor="rgba(0, 0, 0, 0.7)"
+          color="white"
+          textAlign={"center"}
         >
-          Host Star Mass (Sun): {data[0].host_star_mass}
-        </ListItem>
-      </List>
+          <Text fontSize="lg" fontWeight="bold">
+            Host Star Mass (Sun):
+          </Text>
+          <Text>{data[0].host_star_mass}</Text>
+        </GridItem>
+      </Grid>
     </>
   );
 };
