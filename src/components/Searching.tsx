@@ -5,17 +5,17 @@ import apiClient from "../services/api-client";
 
 interface Props {
   onSearch: (searchText: string) => void;
+  searchText: string;
 }
 
 interface Planet {
   name: string;
 }
 
-const Searching = ({ onSearch }: Props) => {
+const Searching = ({ onSearch, searchText }: Props) => {
   const ref = useRef<HTMLInputElement>(null);
   const [data, setData] = useState<Planet[] | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [searchText, setSearchText] = useState<string>("");
 
   useEffect(() => {
     if (searchText) {
@@ -36,7 +36,6 @@ const Searching = ({ onSearch }: Props) => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    setSearchText(value);
     onSearch(value);
   };
 

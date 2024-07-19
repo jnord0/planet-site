@@ -13,8 +13,14 @@ export interface Search {
   searchingText?: string;
 }
 
+const initialSearchState: Search = { holder: null, searchingText: "" };
+
 function App() {
-  const [search, setSearch] = useState<Search>({ holder: null });
+  const [search, setSearch] = useState<Search>(initialSearchState);
+
+  const handleSearch = (searchingText: string) => {
+    setSearch((prevState) => ({ ...prevState, searchingText }));
+  };
 
   return (
     <>
@@ -28,9 +34,8 @@ function App() {
       >
         <GridItem area="nav">
           <NavBar
-            onSearch={(searchingText) =>
-              setSearch((prevState) => ({ ...prevState, searchingText }))
-            }
+            onSearch={handleSearch}
+            searchText={search.searchingText || ""}
           />
         </GridItem>
         <GridItem
@@ -52,7 +57,7 @@ function App() {
           <PlanetInfo search={search} />
         </GridItem>
       </Grid>
-      <ResetButton />
+      <ResetButton setSearch={setSearch} />
     </>
   );
 }

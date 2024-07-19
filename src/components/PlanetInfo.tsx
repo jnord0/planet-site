@@ -28,7 +28,7 @@ const ApiComponent = ({ search }: ApiProps) => {
       setLoading(true);
       setError(null);
       apiClient
-        .get(`/planets?name=${search.searchingText}`) // Replace with your specific endpoint
+        .get(`/planets?name=${search.searchingText}`)
         .then((response) => {
           setData(response.data);
           setLoading(false);
@@ -38,6 +38,8 @@ const ApiComponent = ({ search }: ApiProps) => {
           setError("Failed to fetch data, try again.");
           setLoading(false);
         });
+    } else {
+      setData(null);
     }
   }, [search]);
 
