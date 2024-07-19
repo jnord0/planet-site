@@ -1,4 +1,4 @@
-import { Button, Center } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { Search } from "../App";
 
 interface ApiProps {
