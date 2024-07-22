@@ -1,4 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Text } from "@chakra-ui/react";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import EarthInfo from "./components/EarthInfo";
@@ -31,6 +31,7 @@ function App() {
           base: "1fr",
           lg: "50% 1fr",
         }}
+        height="100vh"
       >
         <GridItem area="nav">
           <NavBar
@@ -43,9 +44,11 @@ function App() {
           backgroundImage={earth}
           backgroundRepeat={"no-repeat"}
           backgroundSize={"cover"}
-          height={"100%"}
+          height="90vh"
         >
-          Earth
+          <Text fontSize={"x-large"} marginLeft={2} fontWeight={"bold"}>
+            Earth
+          </Text>
           <EarthInfo />
         </GridItem>
         <GridItem
@@ -53,11 +56,14 @@ function App() {
           backgroundImage={planet}
           backgroundRepeat={"no-repeat"}
           backgroundSize={"cover"}
+          height="90vh"
         >
           <PlanetInfo search={search} />
         </GridItem>
       </Grid>
-      <ResetButton setSearch={setSearch} />
+      <center>
+        <ResetButton setSearch={setSearch} />
+      </center>
     </>
   );
 }

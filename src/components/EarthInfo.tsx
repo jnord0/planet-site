@@ -30,10 +30,12 @@ const EarthInfo = () => {
     <Grid
       templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
       gap={6}
-      paddingTop={8}
+      paddingTop={4}
+      height="80vh"
+      gridAutoRows="1fr"
     >
       {earth.map(({ id, name, stats }) => (
-        <GridItem key={id}>
+        <GridItem key={id} height="100%">
           <Box
             borderWidth="1px"
             borderRadius="lg"
@@ -44,6 +46,10 @@ const EarthInfo = () => {
             backgroundColor="rgba(0, 0, 0, 0.7)"
             color="white"
             textAlign={"center"}
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            height="100%"
           >
             <Text fontSize="lg" fontWeight="bold">
               {name}:

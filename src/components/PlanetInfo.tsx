@@ -57,11 +57,15 @@ const ApiComponent = ({ search }: ApiProps) => {
 
   return (
     <>
-      <h1>{data[0].name}</h1>
+      <Text fontSize={"x-large"} marginLeft={2} fontWeight={"bold"}>
+        {data[0].name}
+      </Text>
       <Grid
         templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
         gap={6}
-        paddingTop={8}
+        paddingTop={4}
+        height="80vh"
+        gridAutoRows="1fr"
       >
         <GridItem
           borderWidth="1px"
@@ -73,6 +77,10 @@ const ApiComponent = ({ search }: ApiProps) => {
           backgroundColor="rgba(0, 0, 0, 0.7)"
           color="white"
           textAlign={"center"}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          height="100%"
         >
           <Text fontSize="lg" fontWeight="bold">
             Mass (Jupiters):
@@ -89,6 +97,10 @@ const ApiComponent = ({ search }: ApiProps) => {
           backgroundColor="rgba(0, 0, 0, 0.7)"
           color="white"
           textAlign={"center"}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          height="100%"
         >
           <Text fontSize="lg" fontWeight="bold">
             Radius (Jupiters):
@@ -105,6 +117,10 @@ const ApiComponent = ({ search }: ApiProps) => {
           backgroundColor="rgba(0, 0, 0, 0.7)"
           color="white"
           textAlign={"center"}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          height="100%"
         >
           <Text fontSize="lg" fontWeight="bold">
             Average Surface temp (Kelvin):
@@ -121,6 +137,10 @@ const ApiComponent = ({ search }: ApiProps) => {
           backgroundColor="rgba(0, 0, 0, 0.7)"
           color="white"
           textAlign={"center"}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          height="100%"
         >
           <Text fontSize="lg" fontWeight="bold">
             Orbital Period (Days):
@@ -137,6 +157,10 @@ const ApiComponent = ({ search }: ApiProps) => {
           backgroundColor="rgba(0, 0, 0, 0.7)"
           color="white"
           textAlign={"center"}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          height="100%"
         >
           <Text fontSize="lg" fontWeight="bold">
             Distance from Earth (Light Years):
@@ -153,6 +177,10 @@ const ApiComponent = ({ search }: ApiProps) => {
           backgroundColor="rgba(0, 0, 0, 0.7)"
           color="white"
           textAlign={"center"}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          height="100%"
         >
           <Text fontSize="lg" fontWeight="bold">
             Semi Major Axis (AU):
@@ -169,6 +197,10 @@ const ApiComponent = ({ search }: ApiProps) => {
           backgroundColor="rgba(0, 0, 0, 0.7)"
           color="white"
           textAlign={"center"}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          height="100%"
         >
           <Text fontSize="lg" fontWeight="bold">
             Host Star Temp (Kelvin):
@@ -185,6 +217,10 @@ const ApiComponent = ({ search }: ApiProps) => {
           backgroundColor="rgba(0, 0, 0, 0.7)"
           color="white"
           textAlign={"center"}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          height="100%"
         >
           <Text fontSize="lg" fontWeight="bold">
             Host Star Mass (Sun):
