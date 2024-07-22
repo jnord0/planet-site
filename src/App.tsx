@@ -49,6 +49,9 @@ function App() {
           <Text fontSize={"x-large"} marginLeft={2} fontWeight={"bold"}>
             Earth
           </Text>
+          <Text marginLeft={2} borderWidth={"1px"} width={"fit-content"}>
+            Terrestrial
+          </Text>
           <EarthInfo />
         </GridItem>
         <GridItem
