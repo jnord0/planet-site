@@ -10,7 +10,11 @@ const ResetButton = ({ setSearch }: ApiProps) => {
     setSearch({ holder: null, searchingText: "" });
   };
 
-  return <Button onClick={handleReset}>Reset</Button>;
+  return (
+    <Button marginBottom={3} onClick={handleReset}>
+      Reset
+    </Button>
+  );
 };
 
 export default ResetButton;

@@ -55,6 +55,21 @@ const ApiComponent = ({ search }: ApiProps) => {
     return <Box>No data found, Enter valid planet.</Box>;
   }
 
+  let temp = true;
+  let checkMass = true;
+  let checkRadius = true;
+
+  if (data[0].temperature > 395 || data[0].temperature < 258) {
+    temp = false;
+  }
+
+  if (data[0].mass > 0.00315 * 5 || data[0].mass < 0.00315 * 0.5) {
+    checkMass = false;
+  }
+  if (data[0].radius > 0.0892 * 3 || data[0].radius < 0.0892 * 0.5) {
+    checkRadius = false;
+  }
+
   return (
     <>
       <Text fontSize={"x-large"} marginLeft={2} fontWeight={"bold"}>
@@ -67,66 +82,142 @@ const ApiComponent = ({ search }: ApiProps) => {
         height="80vh"
         gridAutoRows="1fr"
       >
-        <GridItem
-          borderWidth="1px"
-          borderRadius="lg"
-          overflow="hidden"
-          boxShadow="md"
-          padding={3}
-          margin={2}
-          backgroundColor="rgba(0, 0, 0, 0.7)"
-          color="white"
-          textAlign={"center"}
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          height="100%"
-        >
-          <Text fontSize="lg" fontWeight="bold">
-            Mass (Jupiters):
-          </Text>
-          <Text>{data[0].mass}</Text>
-        </GridItem>
-        <GridItem
-          borderWidth="1px"
-          borderRadius="lg"
-          overflow="hidden"
-          boxShadow="md"
-          padding={3}
-          margin={2}
-          backgroundColor="rgba(0, 0, 0, 0.7)"
-          color="white"
-          textAlign={"center"}
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          height="100%"
-        >
-          <Text fontSize="lg" fontWeight="bold">
-            Radius (Jupiters):
-          </Text>
-          <Text>{data[0].radius}</Text>
-        </GridItem>
-        <GridItem
-          borderWidth="1px"
-          borderRadius="lg"
-          overflow="hidden"
-          boxShadow="md"
-          padding={3}
-          margin={2}
-          backgroundColor="rgba(0, 0, 0, 0.7)"
-          color="white"
-          textAlign={"center"}
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          height="100%"
-        >
-          <Text fontSize="lg" fontWeight="bold">
-            Average Surface temp (Kelvin):
-          </Text>
-          <Text>{data[0].temperature}</Text>
-        </GridItem>
+        {checkMass ? (
+          <GridItem
+            borderWidth="1px"
+            borderRadius="lg"
+            borderColor={"green"}
+            overflow="hidden"
+            boxShadow="md"
+            padding={3}
+            margin={2}
+            backgroundColor="rgba(0, 0, 0, 0.7)"
+            color="white"
+            textAlign={"center"}
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            height="100%"
+          >
+            <Text fontSize="lg" fontWeight="bold">
+              Mass (Jupiters):
+            </Text>
+            <Text>{data[0].mass}</Text>
+          </GridItem>
+        ) : (
+          <GridItem
+            borderWidth="1px"
+            borderRadius="lg"
+            borderColor={"red"}
+            overflow="hidden"
+            boxShadow="md"
+            padding={3}
+            margin={2}
+            backgroundColor="rgba(0, 0, 0, 0.7)"
+            color="white"
+            textAlign={"center"}
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            height="100%"
+          >
+            <Text fontSize="lg" fontWeight="bold">
+              Mass (Jupiters):
+            </Text>
+            <Text>{data[0].mass}</Text>
+          </GridItem>
+        )}
+        {checkRadius ? (
+          <GridItem
+            borderWidth="1px"
+            borderRadius="lg"
+            borderColor={"green"}
+            overflow="hidden"
+            boxShadow="md"
+            padding={3}
+            margin={2}
+            backgroundColor="rgba(0, 0, 0, 0.7)"
+            color="white"
+            textAlign={"center"}
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            height="100%"
+          >
+            <Text fontSize="lg" fontWeight="bold">
+              Radius (Jupiters):
+            </Text>
+            <Text>{data[0].radius}</Text>
+          </GridItem>
+        ) : (
+          <GridItem
+            borderWidth="1px"
+            borderRadius="lg"
+            borderColor={"red"}
+            overflow="hidden"
+            boxShadow="md"
+            padding={3}
+            margin={2}
+            backgroundColor="rgba(0, 0, 0, 0.7)"
+            color="white"
+            textAlign={"center"}
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            height="100%"
+          >
+            <Text fontSize="lg" fontWeight="bold">
+              Radius (Jupiters):
+            </Text>
+            <Text>{data[0].radius}</Text>
+          </GridItem>
+        )}
+
+        {temp ? (
+          <GridItem
+            borderWidth="1px"
+            borderRadius="lg"
+            borderColor={"green"}
+            overflow="hidden"
+            boxShadow="md"
+            padding={3}
+            margin={2}
+            backgroundColor="rgba(0, 0, 0, 0.7)"
+            color="white"
+            textAlign={"center"}
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            height="100%"
+          >
+            <Text fontSize="lg" fontWeight="bold">
+              Orbital Period (Days):
+            </Text>
+            <Text>{data[0].period}</Text>
+          </GridItem>
+        ) : (
+          <GridItem
+            borderWidth="1px"
+            borderRadius="lg"
+            borderColor={"red"}
+            overflow="hidden"
+            boxShadow="md"
+            padding={3}
+            margin={2}
+            backgroundColor="rgba(0, 0, 0, 0.7)"
+            color="white"
+            textAlign={"center"}
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            height="100%"
+          >
+            <Text fontSize="lg" fontWeight="bold">
+              Average Surface temp (Kelvin):
+            </Text>
+            <Text>{data[0].temperature}</Text>
+          </GridItem>
+        )}
         <GridItem
           borderWidth="1px"
           borderRadius="lg"
