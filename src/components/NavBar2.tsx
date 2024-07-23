@@ -1,7 +1,7 @@
 import { HStack, Text } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
 import Searching from "./Searching";
-import NewPageButton from "./NewPageButton";
+import HomePageButton from "./HomePageButton";
 
 interface Props {
   onSearch: (searchText: string) => void;
@@ -11,9 +11,9 @@ interface Props {
 const NavBar = ({ onSearch, searchText }: Props) => {
   return (
     <HStack padding="10px" justifyContent="space-between">
-      <NewPageButton />
+      <HomePageButton />
       <Text fontSize="large" fontWeight="bold">
-        Is it Habitable?
+        Twin Planet
       </Text>
       <Searching onSearch={onSearch} searchText={searchText} />
       <ColorModeSwitch />
