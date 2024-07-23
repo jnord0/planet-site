@@ -10,7 +10,6 @@ interface Props {
 const NavBar = ({ onSearch, searchText }: Props) => {
   return (
     <HStack padding="10px" justifyContent="space-between">
-      <Button>Twin Planet</Button>
       <Text fontSize="large" fontWeight="bold">
         Is it Habitable?
       </Text>
