@@ -55,10 +55,61 @@ const ApiComponent = ({ search }: ApiProps) => {
     return <Box>No data found, Enter valid planet.</Box>;
   }
 
+  let type = "";
+  let rightType = true;
+  const EARTH_RADIUS = 0.0892;
+  const EARTH_MASS = 0.00315;
+  if (data[0].mass == null) {
+    if (data[0].radius >= EARTH_RADIUS * 6) {
+      type = "Gas Giant";
+      rightType = false;
+    } else if (data[0].radius < EARTH_RADIUS * 2) {
+      type = "Terrestrial";
+      rightType = true;
+    } else if (
+      data[0].radius > EARTH_RADIUS * 3 &&
+      data[0].radius < EARTH_RADIUS * 6
+    ) {
+      type = "Neptune-Like";
+      rightType = false;
+    } else if (
+      data[0].radius >= EARTH_RADIUS * 2 &&
+      data[0].radius < EARTH_RADIUS * 3
+    ) {
+      type = "Super Earth";
+      rightType = true;
+    }
+  } else {
+    if (data[0].radius >= EARTH_RADIUS * 6) {
+      type = "Gas Giant";
+      rightType = false;
+    } else if (data[0].radius < EARTH_RADIUS * 2) {
+      type = "Terrestrial";
+      rightType = true;
+    } else if (
+      data[0].radius > EARTH_RADIUS * 2 &&
+      data[0].radius < EARTH_RADIUS * 6 &&
+      data[0].mass > EARTH_MASS * 5
+    ) {
+      type = "Neptune-Like";
+      rightType = false;
+    } else if (
+      data[0].radius >= EARTH_RADIUS * 2 &&
+      data[0].radius < EARTH_RADIUS * 3 &&
+      data[0].mass < EARTH_MASS * 5
+    ) {
+      type = "Super Earth";
+      rightType = true;
+    }
+  }
+
   return (
     <>
       <Text fontSize={"x-large"} marginLeft={2} fontWeight={"bold"}>
         {data[0].name}
+      </Text>
+      <Text marginLeft={2} borderWidth={"1px"} width={"fit-content"}>
+        {type}
       </Text>
       <Text marginLeft={2} borderWidth={"1px"} width={"fit-content"}></Text>
       <Grid
@@ -108,6 +159,26 @@ const ApiComponent = ({ search }: ApiProps) => {
             Radius (Jupiters):
           </Text>
           <Text>{data[0].radius}</Text>
+        </GridItem>
+        <GridItem
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          boxShadow="md"
+          padding={3}
+          margin={2}
+          backgroundColor="rgba(0, 0, 0, 0.7)"
+          color="white"
+          textAlign={"center"}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          height="100%"
+        >
+          <Text fontSize="lg" fontWeight="bold">
+            Average Surface Temp (Kelvin):
+          </Text>
+          <Text>{data[0].temperature}</Text>
         </GridItem>
 
         <GridItem

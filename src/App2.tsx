@@ -1,7 +1,7 @@
-import { Grid, GridItem, Text } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import "./App.css";
 import NavBar2 from "./components/NavBar2";
-import EarthInfo from "./components/EarthInfo";
+import TwinSide from "./components/TwinSide";
 import SearchSide from "./components/SearchSide";
 import { useState } from "react";
 import earth from "./assets/earth.jpeg";
@@ -46,7 +46,7 @@ function App() {
           backgroundSize={"cover"}
           height="90vh"
         >
-          <EarthInfo />
+          <TwinSide search={search} />
         </GridItem>
         <GridItem
           area="main"

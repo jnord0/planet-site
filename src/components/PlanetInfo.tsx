@@ -257,9 +257,9 @@ const ApiComponent = ({ search }: ApiProps) => {
             height="100%"
           >
             <Text fontSize="lg" fontWeight="bold">
-              Orbital Period (Days):
+              Average Surface Temp (Kelvin):
             </Text>
-            <Text>{data[0].period}</Text>
+            <Text>{data[0].temperature}</Text>
           </GridItem>
         ) : (
           <GridItem
