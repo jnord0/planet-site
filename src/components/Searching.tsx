@@ -1,4 +1,12 @@
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import {
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Box,
+  Button,
+  VStack,
+  Text,
+} from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import apiClient from "../services/api-client";
@@ -16,6 +24,7 @@ const Searching = ({ onSearch, searchText }: Props) => {
   const ref = useRef<HTMLInputElement>(null);
   const [data, setData] = useState<Planet[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
 
   useEffect(() => {
     if (searchText) {
@@ -23,7 +32,8 @@ const Searching = ({ onSearch, searchText }: Props) => {
       apiClient
         .get(`/planets?name=${searchText}`)
         .then((response) => {
-          setData(response.data);
+          setData(response.data as Planet[]);
+          setShowSuggestions(true);
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
@@ -31,6 +41,7 @@ const Searching = ({ onSearch, searchText }: Props) => {
         });
     } else {
       setData(null);
+      setShowSuggestions(false);
     }
   }, [searchText]);
 
@@ -39,34 +50,100 @@ const Searching = ({ onSearch, searchText }: Props) => {
     onSearch(value);
   };
 
+  const handlePlanetClick = (planetName: string) => {
+    onSearch(planetName);
+    setShowSuggestions(false);
+  };
+
+  const handleBlur = () => {
+    // Delay hiding to allow click events to register
+    setTimeout(() => setShowSuggestions(false), 200);
+  };
+
   return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
-        if (ref.current) onSearch(ref.current.value);
-        console.log(ref.current?.value);
-      }}
-    >
-      <InputGroup>
-        <InputLeftElement children={<BsSearch />} />
-        <Input
-          ref={ref}
-          borderRadius={20}
-          placeholder="Search Planets..."
-          variant="filled"
-          value={searchText}
-          onChange={handleInputChange}
-        />
-      </InputGroup>
-      {error && <p>{error}</p>}
-      {data && (
-        <ul>
-          {data.slice(0, 3).map((planet) => (
-            <li key={planet.name}>{planet.name}</li>
-          ))}
-        </ul>
+    <Box position="relative" width="300px">
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          if (ref.current) {
+            onSearch(ref.current.value);
+            setShowSuggestions(false);
+          }
+        }}
+      >
+        <InputGroup>
+          <InputLeftElement pointerEvents="none">
+            <BsSearch color="gray.300" />
+          </InputLeftElement>
+          <Input
+            ref={ref}
+            borderRadius={20}
+            placeholder="Search Planets..."
+            variant="filled"
+            value={searchText}
+            onChange={handleInputChange}
+            onFocus={() => data && setShowSuggestions(true)}
+            onBlur={handleBlur}
+            _hover={{ bg: "whiteAlpha.200" }}
+            _focus={{ bg: "whiteAlpha.300", borderColor: "blue.400" }}
+          />
+        </InputGroup>
+      </form>
+
+      {error && (
+        <Box
+          color="red.400"
+          mt={2}
+          fontSize="sm"
+          bg="red.900"
+          p={2}
+          borderRadius="md"
+        >
+          {error}
+        </Box>
       )}
-    </form>
+
+      {showSuggestions && data && data.length > 0 && (
+        <VStack
+          position="absolute"
+          top="calc(100% + 4px)"
+          left={0}
+          right={0}
+          bg="gray.800"
+          borderRadius="md"
+          boxShadow="xl"
+          border="1px solid"
+          borderColor="gray.600"
+          zIndex={1000}
+          spacing={0}
+          overflow="hidden"
+          maxH="300px"
+          overflowY="auto"
+        >
+          {data.slice(0, 8).map((planet, index) => (
+            <Button
+              key={planet.name}
+              width="100%"
+              variant="ghost"
+              justifyContent="flex-start"
+              borderRadius={0}
+              py={3}
+              px={4}
+              _hover={{ bg: "blue.600" }}
+              _active={{ bg: "blue.700" }}
+              onClick={() => handlePlanetClick(planet.name)}
+              borderTop={index > 0 ? "1px solid" : "none"}
+              borderColor="gray.700"
+              textAlign="left"
+            >
+              <Text fontSize="md" fontWeight="medium">
+                {planet.name}
+              </Text>
+            </Button>
+          ))}
+        </VStack>
+      )}
+    </Box>
   );
 };
 

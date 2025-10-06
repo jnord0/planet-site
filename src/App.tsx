@@ -46,10 +46,20 @@ function App() {
           backgroundSize={"cover"}
           height="90vh"
         >
-          <Text fontSize={"x-large"} marginLeft={2} fontWeight={"bold"}>
+          <Text
+            fontSize={"x-large"}
+            marginLeft={2}
+            fontWeight={"bold"}
+            color={"white"}
+          >
             Earth
           </Text>
-          <Text marginLeft={2} borderWidth={"1px"} width={"fit-content"}>
+          <Text
+            marginLeft={2}
+            borderWidth={"1px"}
+            width={"fit-content"}
+            color={"white"}
+          >
             Terrestrial
           </Text>
           <EarthInfo />

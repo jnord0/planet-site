@@ -169,11 +169,17 @@ const ApiComponent = ({ search }: ApiProps) => {
               margin={2}
               backgroundColor="rgba(0, 0, 0, 0.7)"
               color="white"
-              textAlign={"center"}
+              textAlign="center"
               display="flex"
               flexDirection="column"
               justifyContent="center"
               height="100%"
+              transition="all 0.3s"
+              _hover={{
+                transform: "translateY(-4px)",
+                boxShadow: "xl",
+                backgroundColor: "rgba(0, 0, 0, 0.85)",
+              }}
             >
               <Text fontSize="lg" fontWeight="bold">
                 Mass (Jupiters):
@@ -190,11 +196,17 @@ const ApiComponent = ({ search }: ApiProps) => {
               margin={2}
               backgroundColor="rgba(0, 0, 0, 0.7)"
               color="white"
-              textAlign={"center"}
+              textAlign="center"
               display="flex"
               flexDirection="column"
               justifyContent="center"
               height="100%"
+              transition="all 0.3s"
+              _hover={{
+                transform: "translateY(-4px)",
+                boxShadow: "xl",
+                backgroundColor: "rgba(0, 0, 0, 0.85)",
+              }}
             >
               <Text fontSize="lg" fontWeight="bold">
                 Radius (Jupiters):
@@ -210,11 +222,17 @@ const ApiComponent = ({ search }: ApiProps) => {
               margin={2}
               backgroundColor="rgba(0, 0, 0, 0.7)"
               color="white"
-              textAlign={"center"}
+              textAlign="center"
               display="flex"
               flexDirection="column"
               justifyContent="center"
               height="100%"
+              transition="all 0.3s"
+              _hover={{
+                transform: "translateY(-4px)",
+                boxShadow: "xl",
+                backgroundColor: "rgba(0, 0, 0, 0.85)",
+              }}
             >
               <Text fontSize="lg" fontWeight="bold">
                 Average Surface Temp (Kelvin):
@@ -230,11 +248,17 @@ const ApiComponent = ({ search }: ApiProps) => {
               margin={2}
               backgroundColor="rgba(0, 0, 0, 0.7)"
               color="white"
-              textAlign={"center"}
+              textAlign="center"
               display="flex"
               flexDirection="column"
               justifyContent="center"
               height="100%"
+              transition="all 0.3s"
+              _hover={{
+                transform: "translateY(-4px)",
+                boxShadow: "xl",
+                backgroundColor: "rgba(0, 0, 0, 0.85)",
+              }}
             >
               <Text fontSize="lg" fontWeight="bold">
                 Orbital Period (Days):
@@ -250,11 +274,17 @@ const ApiComponent = ({ search }: ApiProps) => {
               margin={2}
               backgroundColor="rgba(0, 0, 0, 0.7)"
               color="white"
-              textAlign={"center"}
+              textAlign="center"
               display="flex"
               flexDirection="column"
               justifyContent="center"
               height="100%"
+              transition="all 0.3s"
+              _hover={{
+                transform: "translateY(-4px)",
+                boxShadow: "xl",
+                backgroundColor: "rgba(0, 0, 0, 0.85)",
+              }}
             >
               <Text fontSize="lg" fontWeight="bold">
                 Distance from Earth (Light Years):
@@ -270,11 +300,17 @@ const ApiComponent = ({ search }: ApiProps) => {
               margin={2}
               backgroundColor="rgba(0, 0, 0, 0.7)"
               color="white"
-              textAlign={"center"}
+              textAlign="center"
               display="flex"
               flexDirection="column"
               justifyContent="center"
               height="100%"
+              transition="all 0.3s"
+              _hover={{
+                transform: "translateY(-4px)",
+                boxShadow: "xl",
+                backgroundColor: "rgba(0, 0, 0, 0.85)",
+              }}
             >
               <Text fontSize="lg" fontWeight="bold">
                 Semi Major Axis (AU):
@@ -290,11 +326,17 @@ const ApiComponent = ({ search }: ApiProps) => {
               margin={2}
               backgroundColor="rgba(0, 0, 0, 0.7)"
               color="white"
-              textAlign={"center"}
+              textAlign="center"
               display="flex"
               flexDirection="column"
               justifyContent="center"
               height="100%"
+              transition="all 0.3s"
+              _hover={{
+                transform: "translateY(-4px)",
+                boxShadow: "xl",
+                backgroundColor: "rgba(0, 0, 0, 0.85)",
+              }}
             >
               <Text fontSize="lg" fontWeight="bold">
                 Host Star Mass (Suns):
@@ -310,11 +352,17 @@ const ApiComponent = ({ search }: ApiProps) => {
               margin={2}
               backgroundColor="rgba(0, 0, 0, 0.7)"
               color="white"
-              textAlign={"center"}
+              textAlign="center"
               display="flex"
               flexDirection="column"
               justifyContent="center"
               height="100%"
+              transition="all 0.3s"
+              _hover={{
+                transform: "translateY(-4px)",
+                boxShadow: "xl",
+                backgroundColor: "rgba(0, 0, 0, 0.85)",
+              }}
             >
               <Text fontSize="lg" fontWeight="bold">
                 Host Star Temperature (Kelvin):
