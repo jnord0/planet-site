@@ -10,9 +10,20 @@ interface Props {
 
 const NavBar = ({ onSearch, searchText }: Props) => {
   return (
-    <HStack padding="10px" justifyContent="space-between">
+    <HStack
+      padding="10px"
+      justifyContent="space-between"
+      bg="blackAlpha.700"
+      borderBottom="1px solid"
+      borderColor="whiteAlpha.300"
+    >
       <NewPageButton />
-      <Text fontSize="large" fontWeight="bold">
+      <Text
+        fontSize="large"
+        fontWeight="bold"
+        bgGradient="linear(to-r, blue.400, purple.500)"
+        bgClip="text"
+      >
         Is it Habitable?
       </Text>
       <Searching onSearch={onSearch} searchText={searchText} />
