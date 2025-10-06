@@ -1,4 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Box } from "@chakra-ui/react";
 import "./App.css";
 import NavBar2 from "./components/NavBar2";
 import TwinSide from "./components/TwinSide";
@@ -23,15 +23,21 @@ function App() {
   };
 
   return (
-    <>
-      {" "}
+    <Box minHeight="100vh" display="flex" flexDirection="column">
       <Grid
-        templateAreas={{ base: `"nav" "main"`, lg: `"nav nav " "aside main"` }}
+        templateAreas={{
+          base: `"nav" "aside" "main"`,
+          md: `"nav nav" "aside main"`,
+        }}
         templateColumns={{
           base: "1fr",
-          lg: "50% 1fr",
+          md: "50% 50%",
         }}
-        height="100vh"
+        templateRows={{
+          base: "auto 1fr 1fr",
+          md: "auto 1fr",
+        }}
+        flex="1"
       >
         <GridItem area="nav">
           <NavBar2
@@ -44,7 +50,7 @@ function App() {
           backgroundImage={earth}
           backgroundRepeat={"no-repeat"}
           backgroundSize={"cover"}
-          height="90vh"
+          overflowY="auto"
         >
           <TwinSide search={search} />
         </GridItem>
@@ -53,15 +59,22 @@ function App() {
           backgroundImage={planet}
           backgroundRepeat={"no-repeat"}
           backgroundSize={"cover"}
-          height="90vh"
+          overflowY="auto"
         >
           <SearchSide search={search} />
         </GridItem>
       </Grid>
-      <center>
+
+      <Box
+        textAlign="center"
+        py={3}
+        bg="blackAlpha.600"
+        borderTop="1px solid"
+        borderColor="whiteAlpha.300"
+      >
         <ResetButton setSearch={setSearch} />
-      </center>
-    </>
+      </Box>
+    </Box>
   );
 }
 

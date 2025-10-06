@@ -1,4 +1,4 @@
-import { Grid, GridItem, Text } from "@chakra-ui/react";
+import { Grid, GridItem, Text, Box } from "@chakra-ui/react";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import EarthInfo from "./components/EarthInfo";
@@ -25,58 +25,76 @@ function App() {
   return (
     <>
       {" "}
-      <Grid
-        templateAreas={{ base: `"nav" "main"`, lg: `"nav nav " "aside main"` }}
-        templateColumns={{
-          base: "1fr",
-          lg: "50% 1fr",
-        }}
-        height="100vh"
-      >
-        <GridItem area="nav">
-          <NavBar
-            onSearch={handleSearch}
-            searchText={search.searchingText || ""}
-          />
-        </GridItem>
-        <GridItem
-          area="aside"
-          backgroundImage={earth}
-          backgroundRepeat={"no-repeat"}
-          backgroundSize={"cover"}
-          height="90vh"
+      <Box minHeight="100vh" display="flex" flexDirection="column">
+        <Grid
+          templateAreas={{
+            base: `"nav" "aside" "main"`,
+            md: `"nav nav" "aside main"`,
+          }}
+          templateColumns={{
+            base: "1fr",
+            md: "50% 50%",
+          }}
+          templateRows={{
+            base: "auto 1fr 1fr",
+            md: "auto 1fr",
+          }}
+          flex="1"
         >
-          <Text
-            fontSize={"x-large"}
-            marginLeft={2}
-            fontWeight={"bold"}
-            color={"white"}
+          <GridItem area="nav">
+            <NavBar
+              onSearch={handleSearch}
+              searchText={search.searchingText || ""}
+            />
+          </GridItem>
+          <GridItem
+            area="aside"
+            backgroundImage={earth}
+            backgroundRepeat={"no-repeat"}
+            backgroundSize={"cover"}
+            overflowY="auto"
           >
-            Earth
-          </Text>
-          <Text
-            marginLeft={2}
-            borderWidth={"1px"}
-            width={"fit-content"}
-            color={"white"}
+            <Text
+              fontSize={{ base: "lg", md: "x-large" }}
+              marginLeft={2}
+              fontWeight={"bold"}
+              color="white"
+            >
+              Earth
+            </Text>
+            <Text
+              marginLeft={2}
+              borderWidth={"1px"}
+              width={"fit-content"}
+              color="white"
+              borderColor="white"
+              px={2}
+            >
+              Terrestrial
+            </Text>
+            <EarthInfo />
+          </GridItem>
+          <GridItem
+            area="main"
+            backgroundImage={planet}
+            backgroundRepeat={"no-repeat"}
+            backgroundSize={"cover"}
+            overflowY="auto"
           >
-            Terrestrial
-          </Text>
-          <EarthInfo />
-        </GridItem>
-        <GridItem
-          area="main"
-          backgroundImage={planet}
-          backgroundRepeat={"no-repeat"}
-          backgroundSize={"cover"}
-          height="90vh"
+            <PlanetInfo search={search} />
+          </GridItem>
+        </Grid>
+
+        <Box
+          textAlign="center"
+          py={3}
+          bg="blackAlpha.600"
+          borderTop="1px solid"
+          borderColor="whiteAlpha.300"
         >
-          <PlanetInfo search={search} />
-        </GridItem>
-      </Grid>
-      <center>
-        <ResetButton setSearch={setSearch} />
-      </center>
+          <ResetButton setSearch={setSearch} />
+        </Box>
+      </Box>
     </>
   );
 }
