@@ -11,7 +11,13 @@ const ResetButton = ({ setSearch }: ApiProps) => {
   };
 
   return (
-    <Button marginBottom={3} onClick={handleReset}>
+    <Button
+      onClick={handleReset}
+      colorScheme="blue"
+      size="md"
+      _hover={{ transform: "scale(1.05)" }}
+      transition="all 0.2s"
+    >
       Reset
     </Button>
   );

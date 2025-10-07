@@ -93,7 +93,14 @@ const ApiComponent = ({ search }: ApiProps) => {
   }, [search]);
 
   if (loading) {
-    return <Spinner size="xl" color="blue.500" />;
+    return (
+      <Box>
+        <Spinner size="xl" color="blue.500" />
+        <Text color="white" mt={4} fontSize="lg">
+          Searching the cosmos...
+        </Text>
+      </Box>
+    );
   }
 
   if (error) {

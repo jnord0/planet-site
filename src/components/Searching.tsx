@@ -53,11 +53,10 @@ const Searching = ({ onSearch, searchText }: Props) => {
   const handlePlanetClick = (planetName: string) => {
     onSearch(planetName);
     setShowSuggestions(false);
-  };
-
-  const handleBlur = () => {
-    // Delay hiding to allow click events to register
-    setTimeout(() => setShowSuggestions(false), 200);
+    if (ref.current) {
+      ref.current.value = planetName;
+      ref.current.blur();
+    }
   };
 
   return (
@@ -83,7 +82,6 @@ const Searching = ({ onSearch, searchText }: Props) => {
             value={searchText}
             onChange={handleInputChange}
             onFocus={() => data && setShowSuggestions(true)}
-            onBlur={handleBlur}
             _hover={{ bg: "whiteAlpha.200" }}
             _focus={{ bg: "whiteAlpha.300", borderColor: "blue.400" }}
           />
