@@ -2,7 +2,6 @@ import { HStack, Text } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
 import Searching from "./Searching";
 import HomePageButton from "./HomePageButton";
-import ResetButton from "./ResetButton";
 import RandomPlanetButton from "./RandomPlanetButton";
 
 interface Props {
