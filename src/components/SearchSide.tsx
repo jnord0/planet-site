@@ -105,12 +105,30 @@ const ApiComponent = ({ search }: ApiProps) => {
 
   return (
     <>
-      <Text fontSize={"x-large"} marginLeft={2} fontWeight={"bold"}>
-        {data[0].name}
-      </Text>
-      <Text marginLeft={2} borderWidth={"1px"} width={"fit-content"}>
-        {type}
-      </Text>
+      <Box px={4} pt={4}>
+        <Text
+          fontSize="3xl"
+          fontWeight="bold"
+          color="white"
+          textShadow="0 0 20px rgba(100, 200, 255, 0.6), 2px 2px 8px rgba(0,0,0,0.8)"
+          mb={2}
+        >
+          {data[0].name}
+        </Text>
+        <Box
+          display="inline-block"
+          px={3}
+          py={1}
+          borderRadius="full"
+          bg="green.500"
+          color="white"
+          fontSize="sm"
+          fontWeight="bold"
+          boxShadow="md"
+        >
+          {type}
+        </Box>
+      </Box>
       <Text marginLeft={2} borderWidth={"1px"} width={"fit-content"}></Text>
       <Grid
         templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
@@ -277,32 +295,7 @@ const ApiComponent = ({ search }: ApiProps) => {
           </Text>
           <Text>{data[0].semi_major_axis}</Text>
         </GridItem>
-        <GridItem
-          borderWidth="1px"
-          borderRadius="lg"
-          overflow="hidden"
-          boxShadow="md"
-          padding={3}
-          margin={2}
-          backgroundColor="rgba(0, 0, 0, 0.7)"
-          color="white"
-          textAlign="center"
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          height="100%"
-          transition="all 0.3s"
-          _hover={{
-            transform: "translateY(-4px)",
-            boxShadow: "xl",
-            backgroundColor: "rgba(0, 0, 0, 0.85)",
-          }}
-        >
-          <Text fontSize="lg" fontWeight="bold">
-            Host Star Temp (Kelvin):
-          </Text>
-          <Text>{data[0].host_star_temperature}</Text>
-        </GridItem>
+
         <GridItem
           borderWidth="1px"
           borderRadius="lg"
@@ -328,6 +321,32 @@ const ApiComponent = ({ search }: ApiProps) => {
             Host Star Mass (Sun):
           </Text>
           <Text>{data[0].host_star_mass}</Text>
+        </GridItem>
+        <GridItem
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          boxShadow="md"
+          padding={3}
+          margin={2}
+          backgroundColor="rgba(0, 0, 0, 0.7)"
+          color="white"
+          textAlign="center"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          height="100%"
+          transition="all 0.3s"
+          _hover={{
+            transform: "translateY(-4px)",
+            boxShadow: "xl",
+            backgroundColor: "rgba(0, 0, 0, 0.85)",
+          }}
+        >
+          <Text fontSize="lg" fontWeight="bold">
+            Host Star Temp (Kelvin):
+          </Text>
+          <Text>{data[0].host_star_temperature}</Text>
         </GridItem>
       </Grid>
     </>

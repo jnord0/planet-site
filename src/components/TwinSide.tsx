@@ -24,6 +24,7 @@ const ApiComponent = ({ search }: ApiProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [twinPlanetInfo, setTwinPlanetInfo] = useState<Planet | null>(null);
+  const [planetType, setPlanetType] = useState<string>("");
 
   useEffect(() => {
     if (search.searchingText) {
@@ -50,9 +51,10 @@ const ApiComponent = ({ search }: ApiProps) => {
     return response.data[0];
   };
 
-  let type = "";
   const findTwinPlanet = async (planetInfo: Planet) => {
     let planets: string[] = [];
+
+    let type = "";
 
     const EARTH_RADIUS = 0.0892;
     const EARTH_MASS = 0.00315;
@@ -93,6 +95,8 @@ const ApiComponent = ({ search }: ApiProps) => {
       }
     }
 
+    setPlanetType(type);
+
     if (type === "Neptune-Like") {
       planets = ["uranus", "neptune"];
     } else if (type === "Super Earth" || type === "Terrestrial") {
@@ -131,7 +135,20 @@ const ApiComponent = ({ search }: ApiProps) => {
   }, [data]);
 
   if (loading) {
-    return <Spinner />;
+    return (
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Spinner size="xl" color="purple.500" thickness="4px" />
+        <Text color="white" mt={4} fontSize="lg">
+          Finding twin planet...
+        </Text>
+      </Box>
+    );
   }
 
   if (error) {
@@ -146,12 +163,31 @@ const ApiComponent = ({ search }: ApiProps) => {
     <>
       {twinPlanetInfo && (
         <>
-          <Text fontSize={"x-large"} marginLeft={2} fontWeight={"bold"}>
-            {twinPlanetInfo.name}
-          </Text>
-          <Text marginLeft={2} borderWidth={"1px"} width={"fit-content"}>
-            {type}
-          </Text>
+          <Box px={4} pt={4}>
+            <Text
+              fontSize="3xl"
+              fontWeight="bold"
+              color="white"
+              textShadow="0 0 20px rgba(100, 200, 255, 0.6), 2px 2px 8px rgba(0,0,0,0.8)"
+              mb={2}
+            >
+              {twinPlanetInfo.name}
+            </Text>
+            <Box
+              display="inline-block"
+              px={3}
+              py={1}
+              borderRadius="full"
+              bg="green.500"
+              color="white"
+              fontSize="sm"
+              fontWeight="bold"
+              boxShadow="md"
+            >
+              {planetType}
+            </Box>
+          </Box>
+
           <Text marginLeft={2} borderWidth={"1px"} width={"fit-content"}></Text>
           <Grid
             templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
