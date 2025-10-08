@@ -56,50 +56,42 @@ const ApiComponent = ({ search }: ApiProps) => {
   }
 
   let type = "";
-  let rightType = true;
+
   const EARTH_RADIUS = 0.0892;
   const EARTH_MASS = 0.00315;
   if (data[0].mass == null) {
     if (data[0].radius >= EARTH_RADIUS * 6) {
       type = "Gas Giant";
-      rightType = false;
     } else if (data[0].radius < EARTH_RADIUS * 2) {
       type = "Terrestrial";
-      rightType = true;
     } else if (
       data[0].radius > EARTH_RADIUS * 3 &&
       data[0].radius < EARTH_RADIUS * 6
     ) {
       type = "Neptune-Like";
-      rightType = false;
     } else if (
       data[0].radius >= EARTH_RADIUS * 2 &&
       data[0].radius < EARTH_RADIUS * 3
     ) {
       type = "Super Earth";
-      rightType = true;
     }
   } else {
     if (data[0].radius >= EARTH_RADIUS * 6) {
       type = "Gas Giant";
-      rightType = false;
     } else if (data[0].radius < EARTH_RADIUS * 2) {
       type = "Terrestrial";
-      rightType = true;
     } else if (
       data[0].radius > EARTH_RADIUS * 2 &&
       data[0].radius < EARTH_RADIUS * 6 &&
       data[0].mass > EARTH_MASS * 5
     ) {
       type = "Neptune-Like";
-      rightType = false;
     } else if (
       data[0].radius >= EARTH_RADIUS * 2 &&
       data[0].radius < EARTH_RADIUS * 3 &&
       data[0].mass < EARTH_MASS * 5
     ) {
       type = "Super Earth";
-      rightType = true;
     }
   }
 
