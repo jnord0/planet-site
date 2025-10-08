@@ -54,24 +54,30 @@ function App() {
             backgroundSize={"cover"}
             overflowY="auto"
           >
-            <Text
-              fontSize={{ base: "lg", md: "x-large" }}
-              marginLeft={2}
-              fontWeight={"bold"}
-              color="white"
-            >
-              Earth
-            </Text>
-            <Text
-              marginLeft={2}
-              borderWidth={"1px"}
-              width={"fit-content"}
-              color="white"
-              borderColor="white"
-              px={2}
-            >
-              Terrestrial
-            </Text>
+            <Box px={4} pt={4}>
+              <Text
+                fontSize="3xl"
+                fontWeight="bold"
+                color="white"
+                textShadow="0 0 20px rgba(100, 200, 255, 0.6), 2px 2px 8px rgba(0,0,0,0.8)"
+                mb={2}
+              >
+                Earth
+              </Text>
+              <Box
+                display="inline-block"
+                px={3}
+                py={1}
+                borderRadius="full"
+                bg="green.500"
+                color="white"
+                fontSize="sm"
+                fontWeight="bold"
+                boxShadow="md"
+              >
+                Terrestrial
+              </Box>
+            </Box>
             <EarthInfo />
           </GridItem>
           <GridItem

@@ -181,26 +181,36 @@ const ApiComponent = ({ search }: ApiProps) => {
 
   return (
     <>
-      <Text fontSize="x-large" marginLeft={2} fontWeight="bold">
-        {planet.name}
-      </Text>
-      <Text
-        marginLeft={2}
-        borderColor={rightType ? "green" : "red"}
-        borderWidth="1px"
-        width="fit-content"
-        px={2}
-        py={1}
-        borderRadius="md"
-      >
-        {type}
-      </Text>
+      <Box px={4} pt={4}>
+        <Text
+          fontSize="3xl"
+          fontWeight="bold"
+          color="white"
+          textShadow="0 0 20px rgba(100, 200, 255, 0.6), 2px 2px 8px rgba(0,0,0,0.8)"
+          mb={2}
+        >
+          {planet.name}
+        </Text>
+        <Box
+          display="inline-block"
+          px={3}
+          py={1}
+          borderRadius="full"
+          bg={rightType ? "green.500" : "red.500"}
+          color="white"
+          fontSize="sm"
+          fontWeight="bold"
+          boxShadow="md"
+        >
+          {type}
+        </Box>
+      </Box>
 
       <Grid
         templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
         gap={6}
         paddingTop={4}
-        height="80vh"
+        height="calc(100% - 100px)"
         gridAutoRows="1fr"
       >
         <StatCard
