@@ -1,6 +1,19 @@
-# Habitable Planet Site
+# Planet Habitability Checker
 
-- This site was made to compare exoplanets that have been found to Earth.
-- The site also will take an exoplanet and find the planet in our solar system that most closely resembles it.
+A web application to search for exoplanets and determine their habitability.
 
-Check out [Planet Habitability Site](https://planet-site-nine.vercel.app/)
+[Live Demo](https://planet-site-nine.vercel.app/)
+
+## Features
+
+- Search thousands of exoplanets
+- Check habitability based on Earth-like conditions
+- Find solar system twins for exoplanets
+- Random planet discovery
+
+## Technologies
+
+- React + TypeScript
+- Chakra UI
+- Vite
+- API Ninjas Planets API
