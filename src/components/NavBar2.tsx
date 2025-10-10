@@ -27,9 +27,8 @@ const NavBar = ({ onSearch, searchText }: Props) => {
       <Text
         fontSize="large"
         fontWeight="bold"
-        bgGradient="linear(to-r, blue.400, purple.500)"
+        bgGradient="linear(to-r, yellow.400, blue.500)"
         bgClip="text"
-        color={"white"}
       >
         Twin Planet
       </Text>
