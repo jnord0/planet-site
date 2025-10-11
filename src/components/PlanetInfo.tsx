@@ -7,7 +7,6 @@ import {
   Spinner,
   Text,
   VStack,
-  Progress,
   CircularProgress,
   CircularProgressLabel,
 } from "@chakra-ui/react";
@@ -46,9 +45,8 @@ const ComparisonBar = ({
 }: ComparisonBarProps) => {
   const percentage = (value / earthValue) * 100;
   const displayPercentage = Math.min(Math.max(percentage, 0), 200); // Cap between 0-200%
-  const difference = ((value / earthValue - 1) * 100).toFixed(1);
-  const diffColor =
-    Math.abs(parseFloat(difference)) < 50 ? "green.400" : "orange.400";
+  const difference = (value / earthValue - 1) * 100;
+  const diffColor = Math.abs(difference) < 50 ? "green.400" : "orange.400";
 
   return (
     <Box
