@@ -51,7 +51,7 @@ const ComparisonBar = ({
   return (
     <Box
       p={4}
-      bg="rgba(0, 0, 0, 0.3)"
+      bg="blackAlpha.700"
       backdropFilter="blur(8px)"
       borderRadius="lg"
       borderWidth="2px"
@@ -368,7 +368,7 @@ const ApiComponent = ({ search }: ApiProps) => {
 
       {/* Habitability Score */}
       <Box
-        bg="rgba(0, 0, 0, 0.3)"
+        bg="blackAlpha.700"
         backdropFilter="blur(10px)"
         p={6}
         borderRadius="xl"
