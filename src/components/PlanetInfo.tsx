@@ -43,8 +43,32 @@ const ComparisonBar = ({
   unit,
   isHabitable,
 }: ComparisonBarProps) => {
+  // Handle null/undefined values
+  if (value === null || value === undefined || isNaN(value)) {
+    return (
+      <Box
+        p={4}
+        bg="blackAlpha.700"
+        backdropFilter="blur(8px)"
+        borderRadius="lg"
+        borderWidth="2px"
+        borderColor="gray.500"
+        transition="all 0.3s"
+      >
+        <HStack justify="space-between" mb={2}>
+          <Text fontSize="sm" fontWeight="semibold" color="whiteAlpha.700">
+            {label}
+          </Text>
+          <Text fontSize="md" color="whiteAlpha.500" fontStyle="italic">
+            No data available
+          </Text>
+        </HStack>
+      </Box>
+    );
+  }
+
   const percentage = (value / earthValue) * 100;
-  const displayPercentage = Math.min(Math.max(percentage, 0), 200); // Cap between 0-200%
+  const displayPercentage = Math.min(Math.max(percentage, 0), 200);
   const difference = (value / earthValue - 1) * 100;
   const diffColor = Math.abs(difference) < 50 ? "green.400" : "orange.400";
 
@@ -78,7 +102,7 @@ const ComparisonBar = ({
           </Text>
           <Text fontSize="xs" color={diffColor}>
             {difference > 0 ? "+" : ""}
-            {difference}% vs Earth
+            {difference.toFixed(1)}% vs Earth
           </Text>
         </VStack>
       </HStack>
@@ -344,7 +368,7 @@ const ApiComponent = ({ search }: ApiProps) => {
           fontSize="3xl"
           fontWeight="bold"
           color="white"
-          textShadow="0 0 20px rgba(100, 200, 255, 0.6), 2px 2px 8px rgba(0,0,0,0.8)"
+          textShadow="0 0 20px rgba(100, 200, 255, 0.6), 2px 2px 8px blackAlpha.700"
           mb={2}
         >
           {planet.name}
@@ -482,7 +506,7 @@ const ApiComponent = ({ search }: ApiProps) => {
         >
           <Box
             p={4}
-            bg="rgba(0, 0, 0, 0.8)"
+            bg="blackAlpha.700"
             borderRadius="lg"
             borderWidth="2px"
             borderColor="gray.500"
@@ -500,7 +524,7 @@ const ApiComponent = ({ search }: ApiProps) => {
 
           <Box
             p={4}
-            bg="rgba(0, 0, 0, 0.8)"
+            bg="blackAlpha.700"
             borderRadius="lg"
             borderWidth="2px"
             borderColor="gray.500"
@@ -518,7 +542,7 @@ const ApiComponent = ({ search }: ApiProps) => {
 
           <Box
             p={4}
-            bg="rgba(0, 0, 0, 0.8)"
+            bg="blackAlpha.700"
             borderRadius="lg"
             borderWidth="2px"
             borderColor="gray.500"

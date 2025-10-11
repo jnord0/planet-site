@@ -107,11 +107,12 @@ const Searching = ({ onSearch, searchText }: Props) => {
           top="calc(100% + 4px)"
           left={0}
           right={0}
-          bg="gray.800"
+          bg="blackAlpha.800"
+          backdropFilter="blur(10px)"
           borderRadius="md"
           boxShadow="xl"
           border="1px solid"
-          borderColor="gray.600"
+          borderColor="whiteAlpha.300"
           zIndex={1000}
           spacing={0}
           overflow="hidden"
